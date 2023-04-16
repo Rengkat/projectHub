@@ -2,26 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .headerStyle {
+    @apply w-full lg:w-[80%] mx-auto flex justify-center md:justify-between gap-4 md:gap-0 py-3 md:px-8 lg:px-0;
+  }
+  .logo {
+    @apply font-bold text-2xl bg-gradient-to-r from-yellow-500 to-red-900 text-transparent bg-clip-text;
+  }
+  .header-link {
+    @apply flex gap-1 items-center;
+  }
+  .header-icon {
+    @apply text-red-500 mt-2 md:text-[25px];
+  }
+  .links {
+    @apply py-4 px-8 hover:bg-white hover:text-[#db1e00] rounded-md transition-all duration-300;
+  }
+  .mobile-nav {
+    @apply flex justify-between items-center lg:hidden border-t-[1px] border-[#db1e00] py-2 px-8 relative;
+  }
+  .mobile-links {
+    @apply w-[60%]  transition-all duration-700 h-[200vh] bg-[#db1e00] absolute z-20  top-0 bottom-0 list-none;
+  }
+  .desktop-links {
+    @apply flex w-[80%] mx-auto justify-between font-bold text-xl text-white;
   }
 }
+.hero {
+  background-image: url("../public/pexels-tatiana-syrikova-3975572.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  background: #00000067;
+  position: absolute;
+  inset: 0;
+}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.topics::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #db1e00;
+  height: 10vh;
+  border-radius: 15px;
 }
