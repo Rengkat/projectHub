@@ -3,7 +3,7 @@ import { BsFillJournalBookmarkFill } from "react-icons/bs";
 const me = [1, 2, 3, 6, 5, 3, 7, 3, 5, 6, 4, 3, 6, 7, 3, 2, 5, 7];
 const SubTopics = () => {
   return (
-    <div className="w-[85%] mx-auto">
+    <div className="w-full mx-auto">
       <div className=" flex border-2 border-[#db1e00] mx-auto ">
         <input
           placeholder="SEARCH PROJECT CATEGORY"

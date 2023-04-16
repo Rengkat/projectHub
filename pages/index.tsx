@@ -22,11 +22,11 @@ export default function Home() {
                 <div className="h-[2.5px] bg-[#db1e00] w-[3rem] mt-[5px]"></div>
               </div>
             </div>
-            <div className=" text-xl lg:text-5xl uppercase font-light text-white">
+            <div className=" text-3xl lg:text-5xl uppercase font-light text-white">
               <h1>Project topics and material</h1>
               <h1 className="py-1">for your research</h1>
             </div>
-            <p className="py-2 w-[70%] lg:font-semibold lg:text-[20px] text-white">
+            <p className="py-2 w-[70%] font-light lg:font-semibold lg:text-[20px] text-white">
               Find complete project topics and and research materials for all
               field and levels and Hire expert data analyst to put you through.
             </p>
@@ -35,7 +35,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className=" topics lg:w-[35%] lg:overflow-auto p-5">
+        <div className=" topics w-full lg:w-[35%] lg:overflow-auto p-5">
           <SubTopics />
         </div>
       </div>

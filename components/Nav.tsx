@@ -42,36 +42,34 @@ const Nav = () => {
         <BsFillMenuButtonWideFill
           onClick={handleClick}
           fontSize={30}
-          className=" w-10 h-10 text-red-500 cursor-pointer"
+          className=" w-10 h-10 text-red-500 cursor-pointer text-right"
         />
         {/* Hidden nav */}
 
-        <nav className={`${isOpen ? "right-0" : "-right-[100%]"} mobile-links`}>
-          <li className="text-white">
-            <GrClose
-              fontSize={30}
-              onClick={handleClick}
-              className="text-white"
-            />
-          </li>
-          <li className="py-2">
+        <nav
+          className={`${
+            isOpen ? "right-0" : "-right-full hidden"
+          } mobile-links `}>
+          <GrClose fontSize={30} onClick={handleClick} className="text-white" />
+
+          <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Home</Link>
           </li>
-          <li>
-            <Link className="" href={"/"}>
+          <li className=" text-white text-xl font-semibold pl-6">
+            <Link className="" href={"/topics"}>
               Project Topics
             </Link>
           </li>
-          <li className="py-2">
+          <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Hire a Writer</Link>
           </li>
-          <li className="py-2">
+          <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Services</Link>
           </li>
-          <li className="py-2">
+          <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Pricing</Link>
           </li>
-          <li className="py-2">
+          <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Contact</Link>
           </li>
         </nav>

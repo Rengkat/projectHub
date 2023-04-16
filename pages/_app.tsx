@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Nav from "@/components/Nav";
 import "@/styles/globals.css";
@@ -9,6 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Header />
       <Nav />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
