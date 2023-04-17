@@ -27,6 +27,12 @@
   .desktop-links {
     @apply flex w-[80%] mx-auto justify-between font-bold text-xl text-white;
   }
+  .pricing {
+    @apply w-full pb-[8rem] my-[3rem] lg:w-[30%] bg-[#f3381b] rounded-md shadow-md;
+  }
+  .pricing-inner {
+    @apply w-[70%] p-3 flex items-center justify-center mx-auto border-[1px] shadow-lg font-semibold text-2xl bg-white border-black -mt-[3rem] h-32 rounded-md text-center;
+  }
 }
 .hero {
   background-image: url("../public/pexels-tatiana-syrikova-3975572.jpg");
@@ -47,6 +53,5 @@
 }
 ::-webkit-scrollbar-thumb {
   background-color: #db1e00;
-  height: 10vh;
   border-radius: 15px;
 }

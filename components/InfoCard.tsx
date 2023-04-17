@@ -15,7 +15,7 @@ const InfoCard = ({ card }: CardProps) => {
           className="mx-auto"
         />
         <h3 className="font-bold md:text-xl lg:px-[4rem]">{card.title}</h3>
-        <button className="bg-[#db1e00] py-2 px-5 my-3 rounded-md shadow font-semibold text-white hover:bg-[#fb3416]">
+        <button className=" bg-[#db1e00] py-2 px-5 my-3 rounded-md shadow font-semibold text-white hover:bg-[#fb3416]">
           Check it Out
         </button>
       </div>

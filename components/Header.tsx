@@ -21,7 +21,7 @@ const Header = () => {
         </Link>
         <Link href={"/"} className="header-link hidden md:flex">
           <AiOutlineMail className="header-icon" />
-          <p className=" text-sm md:text-xl">projecthyb@support</p>
+          <p className=" text-sm md:text-xl">projecthub@support</p>
         </Link>
       </div>
     </>

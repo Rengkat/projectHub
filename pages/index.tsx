@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import { cards } from "@/components/assets";
 import InfoCard from "@/components/InfoCard";
 import SubTopics from "@/components/SubTopics";
-import Footer from "@/components/Footer";
+import { faq } from "@/components/assets";
+import Faq from "@/components/Faq";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +41,7 @@ export default function Home() {
         </div>
       </div>
       {/* info cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 w-[80%] mx-auto gap-5 my-[5rem] h-[50vh] ">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-[80%] mx-auto gap-5 my-[5rem] lg:h-[50vh] ">
         {cards.map((card) => {
           return (
             <>
@@ -50,6 +51,23 @@ export default function Home() {
             </>
           );
         })}
+      </div>
+      {/* faq */}
+      <div className="bg-[#fceeed] py-20 ">
+        <div className="w-[80%] mx-auto">
+          <h1 className="text-center font-bold text-xl lg:text-3xl mb-10">
+            Frequent Asked Questions (FAQ)
+          </h1>
+          <div>
+            {faq.map((ques) => {
+              return (
+                <>
+                  <Faq key={ques.id} question={ques} />
+                </>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </main>
   );

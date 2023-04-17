@@ -22,13 +22,16 @@ const Nav = () => {
           <Link className="links" href={"/hire-writer"}>
             Hire a Writer
           </Link>
-          <Link className="links" href={"/services"}>
+          <Link className="links" href={"/"}>
             Services
           </Link>
           <Link className="links" href={"/pricing"}>
             Pricing
           </Link>
-          <Link className="links" href={"/"}>
+          <Link
+            className="links"
+            href={"https://wa.me/+2348067581175"}
+            target="_blank">
             Contact
           </Link>
         </div>
