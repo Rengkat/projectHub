@@ -9,7 +9,7 @@ interface TopicProp {
 const TopicList = ({ topic }: TopicProp) => {
   return (
     <div className="border-x-[1px] p-2 even:bg-slate-200 flex gap-2 items-start">
-      <FaUserGraduate fontSize={20} className="text-slate-600" />
+      <FaUserGraduate fontSize={20} className="text-slate-600 mt-1" />
       <h4 className=" uppercase text-sm text-slate-600">{topic.title}</h4>
     </div>
   );

@@ -3,8 +3,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
+import { useRouter } from "next/router";
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const routes = useRouter();
+  const pathName = routes.pathname;
+  // console.log(pathName);
   const handleClick = () => {
     setIsOpen((prev) => !prev);
   };
@@ -13,19 +17,35 @@ const Nav = () => {
       {/* ==========Desktop nav ================ */}
       <nav className=" hidden lg:block py-3 sticky top-0 z-10 bg-[#db1e00] ">
         <div className="desktop-links">
-          <Link className="links" href={"/"}>
+          <Link
+            className={`links ${
+              pathName === "/" ? "bg-white text-[#db1e00]" : ""
+            }`}
+            href={"/"}>
             Home
           </Link>
-          <Link className="links" href={"/topics"}>
+          <Link
+            className={`links ${
+              pathName === "/topics" ? "bg-white text-[#db1e00]" : ""
+            }`}
+            href={"/topics"}>
             Project Topics
           </Link>
-          <Link className="links" href={"/hire-writer"}>
+          <Link
+            className={`links ${
+              pathName === "/hire-writer" ? "bg-white text-[#db1e00]" : ""
+            }`}
+            href={"/hire-writer"}>
             Hire a Writer
           </Link>
           <Link className="links" href={"/"}>
             Services
           </Link>
-          <Link className="links" href={"/pricing"}>
+          <Link
+            className={`links ${
+              pathName === "/pricing" ? "bg-white text-[#db1e00]" : ""
+            }`}
+            href={"/pricing"}>
             Pricing
           </Link>
           <Link
@@ -50,10 +70,14 @@ const Nav = () => {
         {/* Hidden nav */}
 
         <nav
-          className={`${
-            isOpen ? "right-0" : "-right-full hidden"
-          } mobile-links `}>
-          <GrClose fontSize={30} onClick={handleClick} className="text-white" />
+          className={`${isOpen ? "block right-0" : " hidden "} mobile-links `}>
+          <div className="text-white">
+            <BsFillMenuButtonWideFill
+              onClick={handleClick}
+              fontSize={30}
+              className=" w-12 h-12 text-white cursor-pointer pl-6"
+            />
+          </div>
 
           <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Home</Link>
@@ -64,16 +88,16 @@ const Nav = () => {
             </Link>
           </li>
           <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/"}>Hire a Writer</Link>
+            <Link href={"/hire-writer"}>Hire a Writer</Link>
           </li>
           <li className="py-2 text-white text-xl font-semibold pl-6">
             <Link href={"/"}>Services</Link>
           </li>
           <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/"}>Pricing</Link>
+            <Link href={"/pricing"}>Pricing</Link>
           </li>
           <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/"}>Contact</Link>
+            <Link href={"https://wa.me/+2348067581175"}>Contact</Link>
           </li>
         </nav>
       </div>

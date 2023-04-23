@@ -16,11 +16,11 @@ const Faq = ({ question }: QuestionProps) => {
   return (
     <div>
       <div className="bg-[#db1e00] flex justify-between items-center p-2 lg:p-5 text-white border-y-[1px] border-white">
-        <h1 className="font-bold text-[14px] lg:text-xl">
+        <h1 className="font-bold text-[14px] lg:text-xl w-[90%]">
           {question.question}
         </h1>
         <BsPlusLg
-          className="cursor-pointer text-[20px] lg:text-[40px]"
+          className="cursor-pointer text-[20px] lg:text-[40px]  "
           onClick={handleToggle}
         />
       </div>

@@ -2,6 +2,7 @@ import SubTopics from "@/components/SubTopics";
 import TopicList from "@/components/TopicList";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
+import { useRouter } from "next/router";
 const topics = [
   {
     title:
@@ -70,6 +71,9 @@ type topics = {
 };
 type Topics = topics[];
 const Topics = () => {
+  const routers = useRouter();
+  const { params } = routers.query;
+  // console.log(params);
   return (
     <>
       <div className="w-[90%] mx-auto my-10 flex">

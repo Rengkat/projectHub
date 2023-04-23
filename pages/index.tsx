@@ -29,7 +29,7 @@ export default function Home() {
             </div>
             <p className="py-2 w-[70%] font-light lg:font-semibold lg:text-[20px] text-white">
               Find complete project topics and and research materials for all
-              field and levels and Hire expert data analyst to put you through.
+              field and levels.
             </p>
             <button className="py-1 px-2 lg:py-2 lg:px-5 rounded shadow bg-[#db1e00] lg:font-semibold mt-2 text-white hover:bg-[#fb3416]">
               Check it Out
