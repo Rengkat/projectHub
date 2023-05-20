@@ -18,22 +18,37 @@ const Footer = () => {
           </Link>
         </li>
         <li className="py-2 text-white text-xl font-semibold pl-6">
-          <Link href={"/"}>Hire a Writer</Link>
+          <Link href={"/hire-writer"}>Hire a Writer</Link>
         </li>
         <li className="py-2 text-white text-xl font-semibold pl-6">
           <Link href={"/"}>Services</Link>
         </li>
         <li className="py-2 text-white text-xl font-semibold pl-6">
-          <Link href={"/"}>Pricing</Link>
-        </li>
-        <li className="py-2 text-white text-xl font-semibold pl-6">
-          <Link href={"/"}>Contact</Link>
+          <Link href={"/pricing"}>Pricing</Link>
         </li>
       </nav>
-      <div className="flex text-white list-none font-[20px] gap-3 items-center">
-        <li>Twitter</li>
-        <li>Facebook</li>
-        <li>Instagram</li>
+      <div className="flex text-white font-[20px] gap-3 items-center">
+        <Link
+          href="https://www.facebook.com/nennyinkaposh.samuel"
+          target="_blank">
+          <Image
+            src={"/connection-82.png"}
+            width={30}
+            height={30}
+            alt="facebook"
+          />
+        </Link>
+        <Link href="https://instagram.com/sharpboynyinkasamuel" target="_blank">
+          <Image
+            src={"/instagram.png"}
+            width={30}
+            height={30}
+            alt="instagram"
+          />
+        </Link>
+        <Link href="https://twitter.com/Nyinka_Sharpboy" target="_blank">
+          <Image src={"/twitter.png"} width={30} height={30} alt="twitter" />
+        </Link>
       </div>
     </div>
   );

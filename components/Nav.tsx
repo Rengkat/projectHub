@@ -1,17 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext } from "react";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
-import { GrClose } from "react-icons/gr";
 import { useRouter } from "next/router";
+import { AppContext } from "@/Context/appContext";
 const Nav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { openMobileMenu, isMenuOpen } = useContext(AppContext);
   const routes = useRouter();
   const pathName = routes.pathname;
-  // console.log(pathName);
-  const handleClick = () => {
-    setIsOpen((prev) => !prev);
-  };
+
   return (
     <>
       {/* ==========Desktop nav ================ */}
@@ -38,7 +35,11 @@ const Nav = () => {
             href={"/hire-writer"}>
             Hire a Writer
           </Link>
-          <Link className="links" href={"/"}>
+          <Link
+            className={`links ${
+              pathName === "/services" ? "bg-white text-[#db1e00]" : ""
+            }`}
+            href={"/services"}>
             Services
           </Link>
           <Link
@@ -50,56 +51,62 @@ const Nav = () => {
           </Link>
           <Link
             className="links"
-            href={"https://wa.me/+2348067581175"}
+            href={"https://wa.me/+2348063909226"}
             target="_blank">
             Contact
           </Link>
         </div>
       </nav>
       {/*============ Mobile nav================= */}
+
       <div className="mobile-nav">
         <Link href={"/"} className=" flex gap-1 items-center">
           <Image src="/logo.png" alt="logo" width={50} height={50} />
           <p className="logo">ProjectHub</p>
         </Link>
         <BsFillMenuButtonWideFill
-          onClick={handleClick}
+          onClick={() => openMobileMenu()}
           fontSize={30}
-          className=" w-10 h-10 text-red-500 cursor-pointer text-right"
+          className=" w-10 h-10 text-red-500 cursor-pointer z-[3] text-right absolute right-5 top-[4rem]"
         />
         {/* Hidden nav */}
+        <div
+          onClick={() => openMobileMenu()}
+          className={`${
+            isMenuOpen ? "block" : "hidden "
+          } overlay bg-[#0606065a]`}>
+          <nav className="mobile-links absolute right-0 top-[3rem]">
+            <div className="text-white">
+              <BsFillMenuButtonWideFill
+                fontSize={30}
+                className=" w-12 h-12 text-white cursor-pointer pl-6"
+              />
+            </div>
 
-        <nav
-          className={`${isOpen ? "block right-0" : " hidden "} mobile-links `}>
-          <div className="text-white">
-            <BsFillMenuButtonWideFill
-              onClick={handleClick}
-              fontSize={30}
-              className=" w-12 h-12 text-white cursor-pointer pl-6"
-            />
-          </div>
-
-          <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/"}>Home</Link>
-          </li>
-          <li className=" text-white text-xl font-semibold pl-6">
-            <Link className="" href={"/topics"}>
-              Project Topics
-            </Link>
-          </li>
-          <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/hire-writer"}>Hire a Writer</Link>
-          </li>
-          <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/"}>Services</Link>
-          </li>
-          <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"/pricing"}>Pricing</Link>
-          </li>
-          <li className="py-2 text-white text-xl font-semibold pl-6">
-            <Link href={"https://wa.me/+2348067581175"}>Contact</Link>
-          </li>
-        </nav>
+            <li className="py-2 text-white text-xl font-semibold pl-6">
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li className=" text-white text-xl font-semibold pl-6">
+              <Link className="" href={"/topics"}>
+                Project Topics
+              </Link>
+            </li>
+            <li className="py-2 text-white text-xl font-semibold pl-6">
+              <Link href={"/hire-writer"}>Hire a Writer</Link>
+            </li>
+            <li className="py-2 text-white text-xl font-semibold pl-6">
+              <Link href={"/services"}>Services</Link>
+            </li>
+            <li className="py-2 text-white text-xl font-semibold pl-6">
+              <Link href={"/pricing"}>Pricing</Link>
+            </li>
+            <li className="py-2 text-white text-xl font-semibold pl-6">
+              <Link href={"https://wa.me/+2348063909226"} target="_blank">
+                Contact
+              </Link>
+            </li>
+          </nav>
+        </div>
       </div>
     </>
   );

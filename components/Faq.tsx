@@ -3,7 +3,7 @@ import { useState } from "react";
 interface FAQ {
   question: string;
   answer: string;
-  id: number;
+  id: string;
 }
 interface QuestionProps {
   question: FAQ;

@@ -1,11 +1,30 @@
 import { GoSearch } from "react-icons/go";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
-const me = [1, 2, 3, 6, 5, 3, 7, 3, 5, 6, 4, 3, 6, 7, 3, 2, 5, 7];
-const SubTopics = () => {
+import React, { useState } from "react";
+import Link from "next/link";
+import { v4 as uuid } from "uuid";
+type Category = string;
+interface Props {
+  category: Category[];
+  categoryCount: any;
+}
+const SubTopics = ({ category, categoryCount }: Props) => {
+  const id = uuid();
+
+  const [inputFilteredValue, setInputFilteredValue] = useState("");
+
+  const filterInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputFilteredValue(e.target.value);
+  };
+  const filteredCategories = category.filter((item) =>
+    item.toLocaleLowerCase().includes(inputFilteredValue.toLocaleLowerCase())
+  );
+
   return (
     <div className="w-[90%] mx-auto">
       <div className=" flex border-2 border-[#db1e00] mx-auto ">
         <input
+          onChange={filterInput}
           placeholder="SEARCH PROJECT CATEGORY"
           type="text"
           className="w-[80%] py-2 px-5 border-none outline-none"
@@ -14,21 +33,23 @@ const SubTopics = () => {
           <GoSearch />
         </button>
       </div>
-      <div className="py-5">
-        {me.map((m: any, i: number) => {
+      <div className="py-5 ">
+        {filteredCategories.map((cat) => {
           return (
             <>
-              <div
-                key={i}
-                className=" uppercase flex gap-3 items-center text-[16px] md:text-[20px] py-[5px] border-b-[1px] border-[#db1e00]">
-                <aside>
-                  <BsFillJournalBookmarkFill className="text-[#db1e00] " />
-                </aside>
-                <aside>Lorem ipsum dolor sit amet.</aside>
-                <aside className="bg-[#db1e00] p-[4px] rounded-md text-white ml-auto">
-                  120
-                </aside>
-              </div>
+              <Link href={"/topics"} key={id + cat}>
+                <div
+                  // key={cat}
+                  className="hover:bg-[#f1bbb3] uppercase flex gap-3 items-center text-[16px] md:text-[20px] py-[5px] border-b-[1px] border-[#db1e00]">
+                  <aside>
+                    <BsFillJournalBookmarkFill className="text-[#db1e00] " />
+                  </aside>
+                  <aside>{cat}</aside>
+                  <aside className="bg-[#db1e00] py-2 px-4 rounded-md text-white ml-auto">
+                    {categoryCount[cat]}
+                  </aside>
+                </div>
+              </Link>
             </>
           );
         })}

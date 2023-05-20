@@ -1,51 +1,32 @@
 import TopicList from "@/components/TopicList";
 import { GoSearch } from "react-icons/go";
+import { useRouter } from "next/router";
 import { client } from "@/sanity";
-import { useState } from "react";
-
 import Link from "next/link";
-import Head from "next/head";
 
 type topics = {
   title: string;
   id: number;
 };
-interface Current {
-  current: string;
-}
 interface postProps {
   posts: SanityPost[];
 }
 interface SanityPost {
   _id: string;
   title: string;
-  slug: Current;
 }
 
 type Topics = topics[];
 const Topics = ({ posts }: postProps) => {
-  const [inputValue, setInputValue] = useState("");
+  const routers = useRouter();
+  const { params } = routers.query;
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-  const filteredTopics = posts.filter((topic) =>
-    topic.title.toLowerCase().includes(inputValue.toLowerCase())
-  );
   return (
     <>
-      <Head>
-        <title>Project topics and materials </title>
-        <meta
-          name="description"
-          content="Find complete project topics and research materials for all fields of study and level of education"
-        />
-      </Head>
       <div className="w-[80%] mx-auto my-10 flex">
         <div className="w-full lg:w-[100%]  ">
           <div className=" flex border-2 border-[#db1e00] mx-auto ">
             <input
-              onChange={handleSearch}
               placeholder="SEARCH PROJECT TOPIC"
               type="text"
               className="w-[80%] py-4 px-5 border-none outline-none"
@@ -56,14 +37,14 @@ const Topics = ({ posts }: postProps) => {
           </div>
 
           <h1 className="bg-[#db1e00] mt-5 py-3 text-center text-white text-[14px] lg:text-xl">
-            PROJECT TOPICS AND MATERIALS
+            ACTUARIAL SCIENCE PROJECT TOPICS AND MATERIALS
           </h1>
           <div>
-            {filteredTopics.map((topic: SanityPost) => {
+            {posts.map((topic: SanityPost) => {
               return (
                 <>
-                  <Link href={`topics/${topic.slug?.current}`} key={topic._id}>
-                    <TopicList topic={topic} />
+                  <Link href={`/topics/${topic._id}`}>
+                    <TopicList key={topic._id} topic={topic} />
                   </Link>
                 </>
               );
@@ -80,11 +61,9 @@ const Topics = ({ posts }: postProps) => {
           <p>
             Hire a writer or submit your topic expert for the work or resources
           </p>
-          <Link href={"/hire-writer"}>
-            <button className="px-3 py-2 lg:py-2 text-[14px] lg:px-5 font-semibold rounded shadow bg-[#db1e00] text-white my-2">
-              Hire Writer
-            </button>
-          </Link>
+          <button className="px-3 py-2 lg:py-2 text-[14px] lg:px-5 font-semibold rounded shadow bg-[#db1e00] text-white my-2">
+            Hire Writer
+          </button>
         </div>
       </div>
     </>
@@ -97,7 +76,6 @@ export async function getStaticProps() {
   const query = `*[_type == "post"] {
     _id,
     title,
-    slug,
   }`;
   const posts = await client.fetch<SanityPost[]>(query);
   return {

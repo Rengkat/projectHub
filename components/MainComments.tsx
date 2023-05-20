@@ -1,64 +1,35 @@
-import React from "react";
+interface Comment {
+  surname: string;
+  firstName: string;
+  comment: string;
+  institution: string;
+  _id: string;
+}
+type Comments = Comment[];
 
-const MainComments = () => {
+interface Props {
+  comments: Comments;
+}
+// { comments }: Props
+const MainComments = ({ comments }: Props) => {
   return (
     <div className="mt-[5rem] lg:mt-[8rem] w-[80%] mx-auto text-slate-600">
       <h1 className="text-center text-2xl my-2">HERE'S PEOPLE'S COMMENTS</h1>
-      <div className="shadow-lg p-5 my-[1px]">
-        <h1 className=" font-bold text-[18px] text-center">
-          Alexander Rengkat
-        </h1>
-        <p className="text-xs font-bold text-center">University of Jos</p>
-        <p className="py-1">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa beatae
-          omnis exercitationem ut aliquam, sapiente quibusdam aliquid
-          perferendis iusto! In?
-        </p>
-      </div>
-      <div className="shadow-lg p-5 my-[1px]">
-        <h1 className=" font-bold text-[18px] text-center">
-          Alexander Rengkat
-        </h1>
-        <p className="text-xs font-bold text-center">University of Jos</p>
-        <p className="py-1">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa beatae
-          omnis exercitationem ut aliquam, sapiente quibusdam aliquid
-          perferendis iusto! In?
-        </p>
-      </div>
-      <div className="shadow-lg p-5 my-[1px]">
-        <h1 className=" font-bold text-[18px] text-center">
-          Alexander Rengkat
-        </h1>
-        <p className="text-xs font-bold text-center">University of Jos</p>
-        <p className="py-1">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa beatae
-          omnis exercitationem ut aliquam, sapiente quibusdam aliquid
-          perferendis iusto! In?
-        </p>
-      </div>
-      <div className="shadow-lg p-5 my-[1px]">
-        <h1 className=" font-bold text-[18px] text-center">
-          Alexander Rengkat
-        </h1>
-        <p className="text-xs font-bold text-center">University of Jos</p>
-        <p className="py-1">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa beatae
-          omnis exercitationem ut aliquam, sapiente quibusdam aliquid
-          perferendis iusto! In?
-        </p>
-      </div>
-      <div className="shadow-lg p-5 my-[1px]">
-        <h1 className=" font-bold text-[18px] text-center">
-          Alexander Rengkat
-        </h1>
-        <p className="text-xs font-bold text-center">University of Jos</p>
-        <p className="py-1">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa beatae
-          omnis exercitationem ut aliquam, sapiente quibusdam aliquid
-          perferendis iusto! In?
-        </p>
-      </div>
+      {comments?.map((comment: Comment) => {
+        return (
+          <>
+            <div key={comment._id} className="shadow-lg p-5 my-[2px]">
+              <h1 className=" font-bold text-[18px] text-center capitalize">
+                {comment.surname} {comment.firstName}
+              </h1>
+              <p className="text-xs font-bold text-center capitalize">
+                {comment.institution}
+              </p>
+              <p className="py-1">{comment.comment}</p>
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 };

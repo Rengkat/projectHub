@@ -21,9 +21,13 @@
   .mobile-nav {
     @apply flex justify-between items-center lg:hidden border-t-[1px] border-[#db1e00] py-2 px-8;
   }
-  .mobile-links {
-    @apply w-[60%]  transition-all duration-700 bg-[#db1e00] absolute z-20 h-full  top-12 bottom-0 list-none;
+  .overlay {
+    @apply transition-all z-[5] duration-700 absolute inset-0 flex justify-end;
   }
+  .mobile-links {
+    @apply w-[60%] bg-[#db1e00]  h-full list-none;
+  }
+
   .desktop-links {
     @apply flex w-[80%] mx-auto justify-between font-bold text-xl text-white;
   }
