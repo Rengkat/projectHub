@@ -13,13 +13,11 @@ interface Props {
   post: postProps;
 }
 const DetailTopic = ({ post }: Props) => {
-  //   console.log(post.result[0].title);
-
   return (
     <>
       <Head>
-        <title>{post.title}</title>
-        <meta name="description" content={post.title} />
+        <title>{post?.title}</title>
+        <meta name="description" content={post?.title} />
       </Head>
       <div className="w-[90%]  lg:w-[60%] mx-auto my-[5rem]">
         <h1 className="font-bold text-[16px]  lg:text-2xl uppercase py-3 lg:py-5">
@@ -29,7 +27,7 @@ const DetailTopic = ({ post }: Props) => {
           <>
             <h1 className="font-semibold text-xl lg:text-2xl py-3">Abstract</h1>
             <div className="text-[14px] lg:text-xl text-justify italic">
-              {post?.abstract[0].children[0]?.text}
+              {post?.abstract[0]?.children[0]?.text}
             </div>
           </>
         )}
@@ -39,7 +37,7 @@ const DetailTopic = ({ post }: Props) => {
               {post?.chapterOne?.map((content: any) => {
                 return (
                   <>
-                    <div key={content._key}>
+                    <div key={content?._key}>
                       <PortableText
                         content={content}
                         serializers={{
@@ -72,10 +70,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const query = `*[_type == "post" && defined(slug.current)][].slug.current`;
   const posts = await client.fetch(query);
 
-  const paths = posts.map((slug: string) => ({
+  const paths = posts?.map((slug: string) => ({
     params: { slug },
   }));
-  console.log(paths);
+
   return { paths, fallback: true };
 };
 export const getStaticProps: GetStaticProps = async (
