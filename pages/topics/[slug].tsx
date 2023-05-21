@@ -16,7 +16,7 @@ const DetailTopic = ({ post }: Props) => {
   return (
     <>
       <Head>
-        <title>{post?.title}</title>
+        <title>ProjectHub</title>
         <meta name="description" content={post?.title} />
       </Head>
       <div className="w-[90%]  lg:w-[60%] mx-auto my-[5rem]">
@@ -34,26 +34,27 @@ const DetailTopic = ({ post }: Props) => {
         <div>
           {post?.chapterOne && (
             <>
-              {post?.chapterOne?.map((content: any) => {
+              {post.chapterOne.map((content: any) => {
+                const { _key, title } = content;
                 return (
-                  <>
-                    <div key={content?._key}>
-                      <PortableText
-                        content={content}
-                        serializers={{
-                          strong: (props: any) => (
-                            <h1 className="text-2xl font-bold" {...props} />
-                          ),
-                        }}
-                        className="text-justify py-3"
-                      />
-                    </div>
-                  </>
+                  <div key={_key}>
+                    {title && <h1 className="text-2xl font-bold">{title}</h1>}
+                    <PortableText
+                      content={content}
+                      serializers={{
+                        strong: (props: any) => (
+                          <h1 className="text-2xl font-bold" {...props} />
+                        ),
+                      }}
+                      className="text-justify py-3"
+                    />
+                  </div>
                 );
               })}
             </>
           )}
         </div>
+
         <div className="my-2">
           <button className="py-1 px-2 rounded bg-[#db1e00] text-white">
             Get the complete material
