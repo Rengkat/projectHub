@@ -80,6 +80,7 @@ const Topics = ({ posts }: postProps) => {
           <p>
             Hire a writer or submit your topic expert for the work or resources
           </p>
+
           <Link href={"/hire-writer"}>
             <button className="px-3 py-2 lg:py-2 text-[14px] lg:px-5 font-semibold rounded shadow bg-[#db1e00] text-white my-2">
               Hire Writer

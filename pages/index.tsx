@@ -49,8 +49,8 @@ export default function Home({ category }: Props) {
               <h1 className="py-1">for your research</h1>
             </div>
             <p className="py-2 w-[70%] font-light lg:font-semibold lg:text-[20px] text-white">
-              Find complete project topics and and research materials for all
-              field and levels.
+              Find complete project topics and research materials for all field
+              and levels.
             </p>
             <Link href={"/topics"} className=" hidden lg:block">
               <button className="py-1 px-2 lg:py-2 lg:px-5 rounded shadow bg-[#db1e00] lg:font-semibold mt-2 text-white hover:bg-[#fb3416]">

@@ -16,7 +16,7 @@ const DetailTopic = ({ post }: Props) => {
   return (
     <>
       <Head>
-        <title>ProjectHub</title>
+        <title>{post?.title}</title>
         <meta name="description" content={post?.title} />
       </Head>
       <div className="w-[90%]  lg:w-[60%] mx-auto my-[5rem]">
