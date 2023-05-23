@@ -13,15 +13,15 @@ const Header = () => {
         </Link>
         <Link href={"/"} className="header-link">
           <FaPhoneAlt className="header-icon" />
-          <p className=" text-sm md:text-xl">+234 8632 342 334</p>
+          <p className=" text-sm md:text-xl">+2348063909226</p>
         </Link>
         <Link href={"/"} className="header-link">
           <FaPhoneAlt className="header-icon" />
-          <p className=" text-sm md:text-xl">+234 8632 342 334</p>
+          <p className=" text-sm md:text-xl">+2347011377154</p>
         </Link>
         <Link href={"/"} className="header-link hidden md:flex">
           <AiOutlineMail className="header-icon" />
-          <p className=" text-sm md:text-xl">projecthub@support</p>
+          <p className=" text-sm md:text-xl">nyinkasamuel@gmail.com</p>
         </Link>
       </div>
     </>

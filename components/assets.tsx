@@ -25,6 +25,12 @@ export const cards: Cards = [
     link: "/hire-writer",
     id: "99707ghmcnkfvhhkf",
   },
+  {
+    title: "Sell your Research/ Project ",
+    logo: "/sale.png",
+    link: "https://wa.me/+2348063909226",
+    id: "99707ghmcnkfvhhkf22r",
+  },
 ];
 interface FAQ {
   question: string;

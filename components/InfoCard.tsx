@@ -6,7 +6,7 @@ type CardProps = {
 };
 const InfoCard = ({ card }: CardProps) => {
   return (
-    <div className=" h-full flex justify-center items-center text-center p-5">
+    <div className=" h-full flex justify-center items-center text-center p-5 lg:p-2">
       <div>
         <Image
           src={card.logo}

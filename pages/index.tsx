@@ -67,7 +67,7 @@ export default function Home({ category }: Props) {
         </div>
       </div>
       {/* info cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 w-[80%] mx-auto gap-5 my-[5rem] lg:h-[50vh] ">
+      <div className="grid grid-cols-1 md:grid-cols-4 w-[90%] mx-auto gap-5 my-[5rem] lg:h-[50vh] ">
         {cards.map((card) => {
           return (
             <>
