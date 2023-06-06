@@ -2,6 +2,7 @@ import { client } from "@/sanity";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import PortableText from "react-portable-text";
+import { useRouter } from "next/router";
 
 interface postProps {
   _id: string;
@@ -13,6 +14,8 @@ interface Props {
   post: postProps;
 }
 const DetailTopic = ({ post }: Props) => {
+  const router = useRouter();
+  if (router.isFallback) return <h1>Loading...</h1>;
   return (
     <>
       <Head>
@@ -93,6 +96,6 @@ export const getStaticProps: GetStaticProps = async (
     props: {
       post,
     },
-    revalidate: 60, //for stale date
+    revalidate: 10, //for stale date
   };
 };

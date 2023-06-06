@@ -24,6 +24,7 @@ interface SanityPost {
 
 type Topics = topics[];
 const Topics = ({ posts }: postProps) => {
+  console.log(posts);
   const [inputValue, setInputValue] = useState("");
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,5 +106,6 @@ export async function getStaticProps() {
     props: {
       posts,
     },
+    revalidate: 10,
   };
 }
